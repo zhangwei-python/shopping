@@ -1,0 +1,10 @@
+
+
+拿到当前Dockerfile之后，你要做的是：
+1、恢复ubuntu:18.04镜像
+2、修改meiduo_mall工程配置文件中的数据库，redis等ip(改为自己的服务所在的ip)
+3、把你自己的宿主机ubuntu中的nginx服务关闭(避免端口占用)
+4、执行构建：
+    (1)、切换到当前base目录
+    (2)、执行构建指令：`sudo docker image build -t meiduo ./`
+5、运行容器: `sudo docker run -d --name meiduo --network=host meiduo:latest`
